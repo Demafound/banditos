@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TRANSMISSION // RESTRICTED</title></head>
+<body bgcolor="#050505" text="#c9c9c9" link="#b8b8b8" vlink="#777777">
+<center><br><br><table width="90%" border="0" cellpadding="12"><tr><td>
+<font face="Courier New,monospace" size="2" color="#777777">DĖMA ARCHIVE TERMINAL // NODE 09</font><hr color="#555555">
+<h2><font face="Courier New,monospace" color="#d8d8d8">TRANSMISSION INTERRUPTED</font></h2>
+<p><font face="Courier New,monospace" size="2">The first signal has been recovered.</font></p>
+<p><font face="Courier New,monospace" size="2">A valid key is required to restore the transmission.</font></p><br>
+<form id="keyForm"><label for="key"><font face="Courier New,monospace" size="2">RECOVERY KEY:</font></label><br><br>
+<input id="key" type="text" autocomplete="off" spellcheck="false" style="background:#111;color:#ddd;border:1px solid #666;padding:8px;width: min(300px,75%);font-family:Courier New,monospace;">
+<input type="submit" value="SUBMIT" style="background:#222;color:#ddd;border:1px solid #666;padding:8px;font-family:Courier New,monospace;cursor:pointer;"></form>
+<p id="message"><font face="Courier New,monospace" size="2" color="#777777">STATUS: WAITING FOR INPUT</font></p>
+<div id="videoPanel" hidden><hr color="#555555"><p><font face="Courier New,monospace" size="2">KEY ACCEPTED // RESTORING VIDEO SIGNAL</font></p>
+<div style="position:relative;width:100%;max-width:640px;padding-bottom:56.25%;height:0;margin:auto;">
+<iframe id="videoFrame" title="Recovered transmission" src="" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+<p><font face="Courier New,monospace" size="2" color="#999999">When the transmission ends, continue to the archive.</font></p>
+<button id="continueButton" type="button" style="background:#111;color:#aaa;border:1px solid #555;padding:8px 12px;font-family:Courier New,monospace;cursor:pointer;">CONTINUE TO ARCHIVE</button></div>
+<hr color="#333333"><font face="Courier New,monospace" size="1" color="#555555">ERR_001 // SIGNAL SOURCE UNKNOWN</font>
+</td></tr></table></center>
+<script>
+(function(){
+const form=document.getElementById('keyForm'), input=document.getElementById('key'), msg=document.getElementById('message'), panel=document.getElementById('videoPanel'), frame=document.getElementById('videoFrame');
+const next='https://demafound.github.io/clancy-15398642_14/?recovered=002';
+function go(){window.location.href=next;}
+form.addEventListener('submit',function(e){e.preventDefault();
+if(input.value.trim().toLowerCase()==='heavydirtysoul'){
+msg.innerHTML='<font face="Courier New,monospace" size="2" color="#b8b8b8">STATUS: KEY ACCEPTED</font>';
+panel.hidden=false; form.hidden=true;
+frame.src='https://www.youtube-nocookie.com/embed/r_9Kf0D5BTs?rel=0';
+}else{msg.innerHTML='<font face="Courier New,monospace" size="2" color="#a44">ERROR: INVALID KEY</font>';input.value='';input.focus();}
+});
+document.getElementById('continueButton').addEventListener('click',go);
+})();
+</script></body></html>
